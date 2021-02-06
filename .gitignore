@@ -1,0 +1,23 @@
+# dependancies
+
+node_modules/
+node_modules/*
+
+# log
+/log
+*.log
+
+# build
+/dist
+# production
+
+# misc
+yarn.lock
+envs/
+config/
+
+# kubernetes
+/kube
+kube/*
+
+Untitled.code-workspace

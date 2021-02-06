@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+    auth-server:
+        build: .
+        ports:
+            - "8080:8080"
+        env_file:
+            - ./envs/.env.production
+        networks:
+            - auth
+            - pool
+
+    auth-redis:
+        image: "redis:alpine"
+        ports:
+            - "6379:6379"
+        volumes:
+            - "auth_redis_data:/data"
+        networks:
+            - auth
+            - pool
+
+networks:
+    auth:
+        external: true
+        driver: bridge
+    pool:
+        external: true
+        driver: bridge
+
+volumes:
+    auth_redis_data:
